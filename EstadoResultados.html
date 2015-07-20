@@ -1,584 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Estado de Resultados</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="stilo.css">
-	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="EstadoResultados.js"></script>
+    <title>Estado de Resultados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="stilo.css">
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="EstadoResultados.js"></script>
 </head>
+
 <body>
-<header> <img id= "menu" src="menu.png" style="
+    <header> <img id="menu" src="menu.png" style="
     height: 4em;
 ">
-<ul id="listamenu">
-	<li id="er">Estado de Resultado</li>
-	<li id="aer">Análisis del estado de Resultado</li>
-	<li id="bg">Balance general</li>
-	<li id="abg">Análisis del Balance general</li>
-	<li id="cp">Cambio de patrimonio</li>
-	<li id="dp">Análisis Dupont</li>
-</ul>
-</header>
-	<div id="EstadoResultados" class = "principal">
-		<h1>Estado de Resultados</h1>
-
-		<div id="ventas" class="parte">
-			<div class="cuentas">
-				<div>
-					<div class="mitad">
-						<label>Ventas </label>
-					</div>
-					<div class="mitad2">
-						<input id="ventas1"  class="a1" size="8" value="0.00">
-						<input id="ventas2"  class="a2" size="8" value="0.00">
-					</div>
-				</div>
-				<div>
-					<div class="mitad">
-						<label>Costos de Ventas </label>
-					</div>
-					<div class="mitad2">
-						<input id="Costos de ventas1" class="a1" size="8" value="-0.00">
-						<input id="Costos de ventas2" class="a2" size="8" value="-0.00">
-
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="mitad">
-					<label class = "total">Utilidad Bruta </label>
-				</div>
-				<div class="mitad2">
-					<input id="UtilidadBruta1" class = "total a1" size="8"  value="0.00" disabled>
-
-					<input id="UtilidadBruta2" class = "total a2" size="8"  value="0.00" disabled>
-				</div>
-			</div>
-			<button id="AgregarVentas" onclick="agregar('ventas')">+</button>
-		</div>
-		<br>
-		<br>
-
-		<div id="uiia" class="parte">
-			<div class="cuentas">
-				<div>
-					<div class="mitad">
-						<label>Depreciación </label>
-					</div>
-					<div class="mitad2">
-						<input id="depreciacion1"  class="a1" size="8" value="-0.00">
-						<input id="depreciacion2"  class="a2" size="8" value="-0.00">
-					</div>
-				</div>
-				<div>
-					<div class="mitad">
-						<label>Gastos de Venta </label>
-					</div>
-					<div class="mitad2">
-						<input id="gastos de ventas1"  class="a1" size="8" value="-0.00">
-						<input id="gastos de ventas2"  class="a2" size="8" value="-0.00">
-
-					</div>
-				</div>
-				<div>
-					<div class="mitad">
-						<label>Intereses Ganados </label>
-					</div>
-					<div class="mitad2">
-						<input id="intereses ganados1" class="a1" size="8" value="0.00">
-						<input id="intereses ganados2" class="a2" size="8" value="0.00">
-
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="mitad">
-					<label class = "total">UIIA</label>
-				</div>
-				<div class="mitad2">
-					<input id="totaluiia1" class = "total a1" size="8"  value="0.00" disabled>
-					<input id="totaluiia2" class = "total a2" size="8"  value="0.00" disabled>
-
-				</div>
-			</div>
-			<button id="AgregarVentas" onclick="agregar('uiia')">+</button>
-		</div>	
-		<br><br>
-		<div id="uai" class="parte">
-			<div class="cuentas">
-				<div>
-					<div class="mitad">
-						<label>Gastos financieros </label>
-					</div>
-					<div class="mitad2">
-						<input id="gastos financieros1" class="a1" size="8" value="-0.00">
-						<input id="gastos financieros2" class="a2"  size="8" value="-0.00">
-
-					</div>
-				</div>
-
-			</div>
-			<div>
-				<div class="mitad">
-					<label class = "total">UIA</label>
-				</div>
-				<div class="mitad2">
-					<input id="totaluai1" class = "total a1" size="8"  value="0.00" disabled>
-					<input id="totaluai2" class = "total a2" size="8"  value="0.00" disabled>
-
-				</div>
-			</div>
-			<button id="AgregarVentas" onclick="agregar('uai')">+</button>
-		</div>
-		<br><br>
-		<div id="utilidadneta" class="parte">
-			<div class="cuentas">
-				<div>
-					<div class="mitad">
-						<label>Impuestos</label>
-					</div>
-					<div class="mitad2">
-						<input id="imputestos1" class="a1" size="8" value="-0.00">
-						<input id="imputestos12" class="a2"  size="8" value="-0.00">
-
-					</div>
-				</div>
-
-			</div>
-			<div>
-				<div class="mitad">
-					<label class = "total">Utilidad Neta</label>
-				</div>
-				<div class="mitad2">
-					<input id="totalutilidadneta1" class = "total a1" size="8"  value="0.00" disabled>
-					<input id="totalutilidadneta2" class = "total a2" size="8"  value="0.00" disabled>
-
-				</div>
-			</div>
-			<button id="AgregarVentas" onclick="agregar('utilidadneta')">+</button>
-		</div>
-		<br><br>
-		<div id="utilidadretenida" class="parte">
-			<div class="cuentas">
-				<div>
-					<div class="mitad">
-						<label>Dividendos</label>
-					</div>
-					<div class="mitad2">
-						<input id="dividendos1" class="a1" size="8" value="-0.00">
-						<input id="dividendo2" class="a2"  size="8" value="-0.00">
-
-					</div>
-				</div>
-
-			</div>
-			<div>
-				<div class="mitad">
-					<label class = "total">Utilidad Retenida</label>
-				</div>
-				<div class="mitad2">
-					<input id="totalutilidadretenida1" class = "total a1" size="8"  value="0.00" disabled>
-					<input id="totalutilidadretenida2" class = "total a2" size="8"  value="0.00" disabled>
-
-				</div>
-			</div>
-			<button id="AgregarVentas" onclick="agregar('utilidadretenida')">+</button>
-		</div>	
-	</div>
-
-
-	<div id="agregar">
-		<label>Nombre de la nueva cuenta: </label>
-		<br><br>
-		<input id="txtAgregar"size="15">
-		<br><br>
-		<button id="btnAgregar" onclick="">Agregar cuenta</button>
-		<button id="btnAgregarCancelar" onclick="">Cancelar</button>
-
-	</div>
-	<div id="AnalisisHorizontaVerticalER" class = "principal">
-		<h1>Análisis Vertical</h1>
-		<div id="avResultado" class="parte">				
-		</div>
-		<h1>Análisis horizontal</h1>
-		<div id="ahResultado" class="parte">				
-		</div>
-	</div>
-
-	<div id="balancegeneral" class = "principal">
-		<h1>Balance General</h1>
-		<div id="eractivos">
-			<h2>Activos</h2>
-			<div id="eractivosc" class="parte">
-				<h2>Activos corrientes</h2>
-				<div class="cuentas">
-					<div>
-						<div class="mitad">
-							<label>Efectivo </label>
-						</div>
-						<div class="mitad2">
-							<input id="efectivo1"  class="a1" size="8" value="0.00">
-							<input id="efectivo2"  class="a2" size="8" value="0.00">
-						</div>
-					</div>
-					<div>
-						<div class="mitad">
-							<label>Cuentas por Cobrar </label>
-						</div>
-						<div class="mitad2">
-							<input id="cuentas por cobrar1" class="a1" size="8" value="0.00">
-							<input id="cuentas por cobrar2" class="a2" size="8" value="0.00">
-
-						</div>
-					</div>
-					<div>
-						<div class="mitad">
-							<label>Inventario </label>
-						</div>
-						<div class="mitad2">
-							<input id="inventario1" class="a1" size="8" value="0.00">
-							<input id="inventario2" class="a2" size="8" value="0.00">
-
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="mitad">
-						<label class = "total">Activos corrientes </label>
-					</div>
-					<div class="mitad2">
-						<input id="totalacorrientes1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="totalacorrientes2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-				<button id="AgregarVentas" onclick="agregar('eractivosc')">+</button>
-
-			</div>
-			<br>
-			<div id="eractivoslp" class="parte">
-				<h2>Activos fijo</h2>
-				<div class="cuentas">
-					<div>
-						<div class="mitad">
-							<label>Planta y equipo </label>
-						</div>
-						<div class="mitad2">
-							<input id="Planta y Equipo1"  class="a1" size="8" value="0.00">
-							<input id="Planta y Equipo2"  class="a2" size="8" value="0.00">
-						</div>
-					</div>
-					<div>
-						<div class="mitad">
-							<label>Depreciacion acumulada </label>
-						</div>
-						<div class="mitad2">
-							<input id="Depreciacion Acumulada1" class="a1" size="8" value="-0.00">
-							<input id="Depreciacion Acumulada2" class="a2" size="8" value="-0.00">
-
-						</div>
-					</div>
-
-				</div>
-				<div>
-					<div class="mitad">
-						<label class = "total">Activos Fijo </label>
-					</div>
-					<div class="mitad2">
-						<input id="totalafijo1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="totalafijo2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-				<button id="AgregarVentas" onclick="agregar('eractivoslp')">+</button>
-
-
-			</div>
-			<br>
-			<div id="eractivoso" class="parte">
-				<h2>Otros activos</h2>
-				<div class="cuentas">
-					<div>
-						<div class="mitad">
-							<label>Otros activos </label>
-						</div>
-						<div class="mitad2">
-							<input id="Otros activos1"  class="a1" size="8" value="0.00">
-							<input id="Otros activos2"  class="a2" size="8" value="0.00">
-						</div>
-					</div>
-
-
-				</div>
-				<div>
-					<div class="mitad">
-						<label class = "total">Otros Activos </label>
-					</div>
-					<div class="mitad2">
-						<input id="totalaotros1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="totalaotros2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-				<button id="AgregarVentas" onclick="agregar('eractivoso')">+</button>
-
-
-			</div>
-			<br>
-			<div id="ertactivo" class="parte">
-				<h2>Total activos</h2>
-
-				<div>
-					<div class="mitad">
-						<label class = "total">Total activos </label>
-					</div>
-					<div class="mitad2">
-						<input id="totalatotal1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="totalatotal2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-
-
-
-			</div>
-		</div>
-		<div id="erpasivo">
-			<h2>Pasivos</h2>
-			<div id="erpcirculante" class="parte">
-				<h2>Pasivo circulante</h2>
-				<div class="cuentas">
-					<div>
-						<div class="mitad">
-							<label>Cuentas por pagar </label>
-						</div>
-						<div class="mitad2">
-							<input id="Cuentas por Pagar1"  class="a1" size="8" value="0.00">
-							<input id="Cuentas por Pagar2"  class="a2" size="8" value="0.00">
-						</div>
-					</div>
-
-					<div>
-						<div class="mitad">
-							<label>Documentos por Pagar </label>
-						</div>
-						<div class="mitad2">
-							<input id="Documentos por Pagar1"  class="a1" size="8" value="0.00">
-							<input id="Documentos por Pagar2"  class="a2" size="8" value="0.00">
-						</div>
-					</div>
-
-					<div>
-						<div class="mitad">
-							<label>Otros Pasivos </label>
-						</div>
-						<div class="mitad2">
-							<input id="Otros Pasivos1"  class="a1" size="8" value="0.00">
-							<input id="Otros Pasivos2"  class="a2" size="8" value="0.00">
-						</div>
-					</div>
-
-				</div>
-				<div>
-					<div class="mitad">
-						<label class = "total">Pasivos circulante </label>
-					</div>
-					<div class="mitad2">
-						<input id="totalpcircualnte1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="totalpcircualnte2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-				<button id="AgregarVentas" onclick="agregar('erpcirculante')">+</button>
-
-
-			</div>
-			<br>
-
-			<div id="erplargoplazo" class="parte">
-				<h2>Pasivo largo plazo</h2>
-				<div class="cuentas">
-					<div>
-						<div class="mitad">
-							<label>Pasivos largo plazo </label>
-						</div>
-						<div class="mitad2">
-							<input id="Pasivos largo plazo1"  class="a1" size="8" value="0.00">
-							<input id="Pasivos largo plazo2"  class="a2" size="8" value="0.00">
-						</div>
-					</div>
-
-
-				</div>
-				<div>
-					<div class="mitad">
-						<label class = "total">Pasivos largo plazo </label>
-					</div>
-					<div class="mitad2">
-						<input id="totalplargoplazo1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="totalplargoplazo2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-				<button id="AgregarVentas" onclick="agregar('erplargoplazo')">+</button>
-
-
-			</div>
-			<br>
-			<div id="ertpasivos" class="parte">
-				<h2>Total pasivos</h2>
-
-				<div>
-					<div class="mitad">
-						<label class = "total">Total pasivos </label>
-					</div>
-					<div class="mitad2">
-						<input id="totalptotal1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="totalptotal2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-
-
-
-			</div>
-		</div>
-		<br>
-		<div id="erpatrimonio" class="parte">
-
-			<h2>Patrimonio</h2>
-			<div class="cuentas">
-				<div>
-					<div class="mitad">
-						<label>Capital </label>
-					</div>
-					<div class="mitad2">
-						<input id="Capital1"  class="a1" size="8" value="0.00">
-						<input id="Capital2"  class="a2" size="8" value="0.00">
-					</div>
-				</div>
-
-
-
-				<div>
-					<div class="mitad">
-						<label class = "total">Utilidad retenida </label>
-					</div>
-					<div class="mitad2">
-						<input id="erutilidadretenida1" class = "total a1" size="8"  value="0.00" disabled>
-						<input id="erutilidadretenida2" class = "total a2" size="8"  value="0.00" disabled>
-
-					</div>
-				</div>
-			</div>
-			<div>
-				<div class="mitad">
-					<label class = "total">Patrimonio </label>
-				</div>
-				<div class="mitad2">
-					<input id="totalpatotal1" class = "total a1" size="8"  value="0.00" disabled>
-					<input id="totalpatotal2" class = "total a2" size="8"  value="0.00" disabled>
-
-				</div>
-			</div>
-			<button id="AgregarVentas" onclick="agregar('erpatrimonio')">+</button>
-
-
-		</div>
-		<br>
-		<div id="erppatrimonio" class="parte">
-			<div>
-
-				<h2>Total de pasivos y patrimonio </h2>
-				<div class="mitad">
-					<label class = "total">Total de pasivos y patrimonio </label>
-				</div>
-				<div class="mitad2">
-					<input id="totalpptotal1" class = "total a1" size="8"  value="0.00" disabled>
-					<input id="totalpptotal2" class = "total a2" size="8"  value="0.00" disabled>
-
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div id="AnalisisHorizontaVerticalBG" class = "principal">
-	<h1>Análisis horizontal</h1>
-	<div id="ahbg" class="parte">				
-	</div>
-	<h1>Análisis Vertical</h1>
-	<div id="avbg" class="parte">				
-	</div>
-	<h1>Tipos de cuentas</h1>
-	<div id="tcuentas" class="parte">				
-	</div>
-</div>
-<div id="cambiopatrimonio" class = "principal">
-	<h1>Cambio de patrimonio</h1>
-	<div id="cuentas" class="parte">				
-	<div>
-		<div class="mitad"><label>Utilidad retenida (Ant)</label>	</div>
-		<div class="mitad2"><input id="urcp" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-	<div>	
-	<div class="mitad"><label>Utilidad neta</label>	</div>
-	<div class="mitad2"><input id="uncp" class = "a1" size="8"  value="0.00" disabled></div>
-	</div>
-		<div>
-		<div class="mitad"><label>Dividendos</label></div>
-		<div class="mitad2">	<input id="dcp" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-		<div>
-		<div class="mitad"><label>Utilidad Retenida</label>	</div>
-		<div class="mitad2"><input id="totalcp" class = "total a1" size="8"  value="0.00" disabled></div>
-		</div>
-	</div>
-</div>
-
-<div id="dupont" class = "principal">
-	<h1>Análisis DUPONT</h1>
-	<div id="cuentas" class="parte">	
-	<h2>Primer año</h2>
-		<div>
-		<div class="mitad"><label>Margen sobre ventas </label></div>
-		<div class="mitad2">	<input id="msvad1" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-		<div>
-		<div class="mitad"><label>Rentabilidad del activo </label>	</div>
-		<div class="mitad2"><input id="rdada1" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-		<div>
-		<div class="mitad"><label>Rotacion del activo </label>	</div>
-		<div class="mitad2"><input id="raad1" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-
-	</div>
-	<br>
-	<div id="cuentas" class="parte">	
-	<h2>Segundo año</h2>
-		<div>
-		<div class="mitad"><label>Margen sobre ventas </label></div>
-		<div class="mitad2">	<input id="msvad2" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-		<div>
-		<div class="mitad"><label>Rentabilidad del activo </label>	</div>
-		<div class="mitad2"><input id="rdada2" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-		<div>
-		<div class="mitad"><label>Rotacion del activo </label>	</div>
-		<div class="mitad2"><input id="raad2" class = "a1" size="8"  value="0.00" disabled></div>
-		</div>
-
-	</div>
-</div>
-<div id="principal" class = "principal">
-<div id="cuentas" class="parte">
-<h1>W. Gustavo Cevallos</h1>
-<h2>Tutoría de Finanzas</h2>
-<h3>A - 2015 </h3>
-</div>
-</div>
+        <ul id="listamenu">
+            <li id="er">Estado de Resultado</li>
+            <li id="aer">Análisis del estado de Resultado</li>
+            <li id="bg">Balance general</li>
+            <li id="abg">Análisis del Balance general</li>
+            <li id="cp">Cambio de patrimonio</li>
+            <li id="fe">Flujo de efectivo</li>
+            <li id="dp">Análisis Dupont</li>
+        </ul>
+    </header>
+    <div id="EstadoResultados" class="principal">
+        <h1>Estado de Resultados</h1>
+        <div id="ventas" class="parte">
+            <div class="cuentas">
+                <div>
+                    <div class="mitad">
+                        <label>Ventas </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="ventas1" class="a1" size="8" value="0.00">
+                        <input id="ventas2" class="a2" size="8" value="0.00">
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label>Costos de Ventas </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="Costos de ventas1" class="a1" size="8" value="-0.00">
+                        <input id="Costos de ventas2" class="a2" size="8" value="-0.00">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label class="total">Utilidad Bruta </label>
+                </div>
+                <div class="mitad2">
+                    <input id="UtilidadBruta1" class="total a1" size="8" value="0.00" disabled>
+                    <input id="UtilidadBruta2" class="total a2" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <button id="AgregarVentas" onclick="agregar('ventas')">+</button>
+        </div>
+        <br>
+        <br>
+        <div id="uiia" class="parte">
+            <div class="cuentas">
+                <div>
+                    <div class="mitad">
+                        <label>Depreciación </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="depreciacion1" class="a1" size="8" value="-0.00">
+                        <input id="depreciacion2" class="a2" size="8" value="-0.00">
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label>Gastos de Venta </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="gastos de ventas1" class="a1" size="8" value="-0.00">
+                        <input id="gastos de ventas2" class="a2" size="8" value="-0.00">
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label>Intereses Ganados </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="intereses ganados1" class="a1" size="8" value="0.00">
+                        <input id="intereses ganados2" class="a2" size="8" value="0.00">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label class="total">UIIA</label>
+                </div>
+                <div class="mitad2">
+                    <input id="totaluiia1" class="total a1" size="8" value="0.00" disabled>
+                    <input id="totaluiia2" class="total a2" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <button id="AgregarVentas" onclick="agregar('uiia')">+</button>
+        </div>
+        <br>
+        <br>
+        <div id="uai" class="parte">
+            <div class="cuentas">
+                <div>
+                    <div class="mitad">
+                        <label>Gastos financieros </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="gastos financieros1" class="a1" size="8" value="-0.00">
+                        <input id="gastos financieros2" class="a2" size="8" value="-0.00">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label class="total">UIA</label>
+                </div>
+                <div class="mitad2">
+                    <input id="totaluai1" class="total a1" size="8" value="0.00" disabled>
+                    <input id="totaluai2" class="total a2" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <button id="AgregarVentas" onclick="agregar('uai')">+</button>
+        </div>
+        <br>
+        <br>
+        <div id="utilidadneta" class="parte">
+            <div class="cuentas">
+                <div>
+                    <div class="mitad">
+                        <label>Impuestos</label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="imputestos1" class="a1" size="8" value="-0.00">
+                        <input id="imputestos12" class="a2" size="8" value="-0.00">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label class="total">Utilidad Neta</label>
+                </div>
+                <div class="mitad2">
+                    <input id="totalutilidadneta1" class="total a1" size="8" value="0.00" disabled>
+                    <input id="totalutilidadneta2" class="total a2" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <button id="AgregarVentas" onclick="agregar('utilidadneta')">+</button>
+        </div>
+        <br>
+        <br>
+        <div id="utilidadretenida" class="parte">
+            <div class="cuentas">
+                <div>
+                    <div class="mitad">
+                        <label>Dividendos</label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="dividendos1" class="a1" size="8" value="-0.00">
+                        <input id="dividendo2" class="a2" size="8" value="-0.00">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label class="total">Utilidad Retenida</label>
+                </div>
+                <div class="mitad2">
+                    <input id="totalutilidadretenida1" class="total a1" size="8" value="0.00" disabled>
+                    <input id="totalutilidadretenida2" class="total a2" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <button id="AgregarVentas" onclick="agregar('utilidadretenida')">+</button>
+        </div>
+    </div>
+    <div id="agregar" style="z-index: 999999999999;">
+        <label>Nombre de la nueva cuenta: </label>
+        <br>
+        <br>
+        <input id="txtAgregar" size="15">
+        <br>
+        <br>
+        <button id="btnAgregar" onclick="">Agregar cuenta</button>
+        <button id="btnAgregarCancelar" onclick="">Cancelar</button>
+    </div>
+    <div id="AnalisisHorizontaVerticalER" class="principal">
+        <h1>Análisis Vertical</h1>
+        <div id="avResultado" class="parte">
+        </div>
+        <h1>Análisis horizontal</h1>
+        <div id="ahResultado" class="parte">
+        </div>
+    </div>
+    <div id="balancegeneral" class="principal">
+        <h1>Balance General</h1>
+        <div id="eractivos">
+            <h2>Activos</h2>
+            <div id="eractivosc" class="parte">
+                <h2>Activos corrientes</h2>
+                <div class="cuentas">
+                    <div>
+                        <div class="mitad">
+                            <label>Efectivo </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="efectivo1" class="a1" size="8" value="0.00">
+                            <input id="efectivo2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mitad">
+                            <label>Cuentas por Cobrar </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="cuentas por cobrar1" class="a1" size="8" value="0.00">
+                            <input id="cuentas por cobrar2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mitad">
+                            <label>Inventario </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="inventario1" class="a1" size="8" value="0.00">
+                            <input id="inventario2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Activos corrientes </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="totalacorrientes1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="totalacorrientes2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+                <button id="AgregarVentas" onclick="agregar('eractivosc')">+</button>
+            </div>
+            <br>
+            <div id="eractivoslp" class="parte">
+                <h2>Activos fijo</h2>
+                <div class="cuentas">
+                    <div>
+                        <div class="mitad">
+                            <label>Planta y equipo </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="Planta y Equipo1" class="a1" size="8" value="0.00">
+                            <input id="Planta y Equipo2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mitad">
+                            <label>Depreciacion acumulada </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="Depreciacion Acumulada1" class="a1" size="8" value="-0.00">
+                            <input id="Depreciacion Acumulada2" class="a2" size="8" value="-0.00">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Activos Fijo </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="totalafijo1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="totalafijo2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+                <button id="AgregarVentas" onclick="agregar('eractivoslp')">+</button>
+            </div>
+            <br>
+            <div id="eractivoso" class="parte">
+                <h2>Otros activos</h2>
+                <div class="cuentas">
+                    <div>
+                        <div class="mitad">
+                            <label>Otros activos </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="Otros activos1" class="a1" size="8" value="0.00">
+                            <input id="Otros activos2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Otros Activos </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="totalaotros1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="totalaotros2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+                <button id="AgregarVentas" onclick="agregar('eractivoso')">+</button>
+            </div>
+            <br>
+            <div id="ertactivo" class="parte">
+                <h2>Total activos</h2>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Total activos </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="totalatotal1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="totalatotal2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="erpasivo">
+            <h2>Pasivos</h2>
+            <div id="erpcirculante" class="parte">
+                <h2>Pasivo circulante</h2>
+                <div class="cuentas">
+                    <div>
+                        <div class="mitad">
+                            <label>Cuentas por pagar </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="Cuentas por Pagar1" class="a1" size="8" value="0.00">
+                            <input id="Cuentas por Pagar2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mitad">
+                            <label>Documentos por Pagar </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="Documentos por Pagar1" class="a1" size="8" value="0.00">
+                            <input id="Documentos por Pagar2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mitad">
+                            <label>Otros Pasivos </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="Otros Pasivos1" class="a1" size="8" value="0.00">
+                            <input id="Otros Pasivos2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Pasivos circulante </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="totalpcircualnte1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="totalpcircualnte2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+                <button id="AgregarVentas" onclick="agregar('erpcirculante')">+</button>
+            </div>
+            <br>
+            <div id="erplargoplazo" class="parte">
+                <h2>Pasivo largo plazo</h2>
+                <div class="cuentas">
+                    <div>
+                        <div class="mitad">
+                            <label>Pasivos largo plazo </label>
+                        </div>
+                        <div class="mitad2">
+                            <input id="Pasivos largo plazo1" class="a1" size="8" value="0.00">
+                            <input id="Pasivos largo plazo2" class="a2" size="8" value="0.00">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Pasivos largo plazo </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="totalplargoplazo1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="totalplargoplazo2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+                <button id="AgregarVentas" onclick="agregar('erplargoplazo')">+</button>
+            </div>
+            <br>
+            <div id="ertpasivos" class="parte">
+                <h2>Total pasivos</h2>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Total pasivos </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="totalptotal1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="totalptotal2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="erpatrimonio" class="parte">
+            <h2>Patrimonio</h2>
+            <div class="cuentas">
+                <div>
+                    <div class="mitad">
+                        <label>Capital </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="Capital1" class="a1" size="8" value="0.00">
+                        <input id="Capital2" class="a2" size="8" value="0.00">
+                    </div>
+                </div>
+                <div>
+                    <div class="mitad">
+                        <label class="total">Utilidad retenida </label>
+                    </div>
+                    <div class="mitad2">
+                        <input id="erutilidadretenida1" class="total a1" size="8" value="0.00" disabled>
+                        <input id="erutilidadretenida2" class="total a2" size="8" value="0.00" disabled>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label class="total">Patrimonio </label>
+                </div>
+                <div class="mitad2">
+                    <input id="totalpatotal1" class="total a1" size="8" value="0.00" disabled>
+                    <input id="totalpatotal2" class="total a2" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <button id="AgregarVentas" onclick="agregar('erpatrimonio')">+</button>
+        </div>
+        <br>
+        <div id="erppatrimonio" class="parte">
+            <div>
+                <h2>Total de pasivos y patrimonio </h2>
+                <div class="mitad">
+                    <label class="total">Total de pasivos y patrimonio </label>
+                </div>
+                <div class="mitad2">
+                    <input id="totalpptotal1" class="total a1" size="8" value="0.00" disabled>
+                    <input id="totalpptotal2" class="total a2" size="8" value="0.00" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="AnalisisHorizontaVerticalBG" class="principal">
+        <h1>Análisis horizontal</h1>
+        <div id="ahbg" class="parte">
+        </div>
+        <h1>Análisis Vertical</h1>
+        <div id="avbg" class="parte">
+        </div>
+        <h1>Tipos de cuentas</h1>
+        <div id="tcuentas" class="parte">
+        </div>
+    </div>
+    <div id="cambiopatrimonio" class="principal">
+        <h1>Cambio de patrimonio</h1>
+        <div id="cuentas" class="parte">
+            <div>
+                <div class="mitad">
+                    <label>Utilidad retenida (Ant)</label>
+                </div>
+                <div class="mitad2">
+                    <input id="urcp" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Utilidad neta</label>
+                </div>
+                <div class="mitad2">
+                    <input id="uncp" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Dividendos</label>
+                </div>
+                <div class="mitad2">
+                    <input id="dcp" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Utilidad Retenida</label>
+                </div>
+                <div class="mitad2">
+                    <input id="totalcp" class="total a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dupont" class="principal">
+        <h1>Análisis DUPONT</h1>
+        <div id="cuentas" class="parte">
+            <h2>Primer año</h2>
+            <div>
+                <div class="mitad">
+                    <label>Margen sobre ventas </label>
+                </div>
+                <div class="mitad2">
+                    <input id="msvad1" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Rentabilidad del activo </label>
+                </div>
+                <div class="mitad2">
+                    <input id="rdada1" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Rotacion del activo </label>
+                </div>
+                <div class="mitad2">
+                    <input id="raad1" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="cuentas" class="parte">
+            <h2>Segundo año</h2>
+            <div>
+                <div class="mitad">
+                    <label>Margen sobre ventas </label>
+                </div>
+                <div class="mitad2">
+                    <input id="msvad2" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Rentabilidad del activo </label>
+                </div>
+                <div class="mitad2">
+                    <input id="rdada2" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Rotacion del activo </label>
+                </div>
+                <div class="mitad2">
+                    <input id="raad2" class="a1" size="8" value="0.00" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Flujo de caja -->
+    <div id="flujoefectivo" class="principal">
+        <h1>Flujo de efectivo</h1>
+        <div id="cuentas" class="parte">
+            <h3>Act. Operacional</h3>
+            <div>
+                <div class="mitad">
+                    <label>Utilidad del Ejercicio </label>
+                </div>
+                <div class="mitad2">
+                    <input id="feutilidad" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Depreciacion Acumulada </label>
+                </div>
+                <div class="mitad2">
+                    <input id="fedepreciacion" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Cuentas por Pagar </label>
+                </div>
+                <div class="mitad2">
+                    <input id="fecuentasporpagar" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Otros Pasivos </label>
+                </div>
+                <div class="mitad2">
+                    <input id="feotrospasivos" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Cuentas por Cobrar </label>
+                </div>
+                <div class="mitad2">
+                    <input id="fecuentasporcobrar" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Inventario </label>
+                </div>
+                <div class="mitad2">
+                    <input id="feinventario" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Dividendos </label>
+                </div>
+                <div class="mitad2">
+                    <input id="fedividendos" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Recursos provenientes dee la operación</label>
+                </div>
+                <div class="mitad2">
+                    <input id="ferecursosprovdelaoperacion" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <h3>ACT. INVERSION A LARGO PLAZO</h3>
+            <div>
+                <div class="mitad">
+                    <label>Planta y Equipo</label>
+                </div>
+                <div class="mitad2">
+                    <input id="fePlantayequipos" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Recursos provenientes de la inversion a LP</label>
+                </div>
+                <div class="mitad2">
+                    <input id="feRecursoProvdelainversioLpP" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <h3>ACT. FINANCIAMIENTO</h3>
+            <div>
+                <div class="mitad">
+                    <label>Documentos por Pagar</label>
+                </div>
+                <div class="mitad2">
+                    <input id="feDocumentosporpagar" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Pasivo a Largo Plazo</label>
+                </div>
+                <div class="mitad2">
+                    <input id="fePasivoLP" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Efectivo proveninete del financiamiento</label>
+                </div>
+                <div class="mitad2">
+                    <input id="feEfectivoprovfinanciamiento" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Aumento o disminucion del efectivo</label>
+                </div>
+                <div class="mitad2">
+                    <input id="feAumentoodisminuciondelefectivo" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Efectivo Inicial</label>
+                </div>
+                <div class="mitad2">
+                    <input id="feefectivoinicial" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+            <div>
+                <div class="mitad">
+                    <label>Efectivo Año Actual</label>
+                </div>
+                <div class="mitad2">
+                    <input id="feanoactual" class="a1" size="8" value="0.00">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="principal" class="principal">
+        <div id="cuentas" class="parte">
+            <h1>W. Gustavo Cevallos</h1>
+            <h2>Tutoría de Finanzas</h2>
+            <h3>A - 2015 </h3>
+        </div>
+    </div>
 </body>
+
 </html>
