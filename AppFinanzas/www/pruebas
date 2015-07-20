@@ -1,0 +1,18 @@
+var llabel = [];
+	$('#EstadoResultados').find( "label" ).each(function(index, element){
+		llabel.push(element.innerHTML);
+	});
+var avhtml='';
+var avi=0;
+	$('#EstadoResultados').find( "input" ).each(function(index, element){
+
+		if ((index+1)%2 ==0) { 
+	avhtml+='<input class="a2"  size="8" value="'+($(element).val()/$("#ventas2").val()).toFixed(2)+'"></div></div>';
+		}
+		else{
+			
+			avhtml+='<div><div class="mitad"><label>'+llabel[avi]+'</label></div><div class="mitad2"><input class="a1" size="8" value="'+($(element).val()/$("#ventas1").val()).toFixed(2)+'">';
+		avi+=1;
+		}
+	});
+$('#avResultado').append(avhtml);

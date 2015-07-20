@@ -1,0 +1,50 @@
+.principal{
+		text-align: center;
+		display: inline-block;
+	}
+.parte{
+	text-align: left;
+	border: 1px solid;
+	border-radius: 0.5em;
+	display: block;
+	padding: 1em;
+	  min-width: 334px;
+	position: relative;
+}
+	.parte button{
+		margin: 0.5em;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+
+.mitad{
+	display: inline-block;
+	padding: 0.5em;
+	  width: 30%;
+
+	vertical-align: middle;
+}
+#listamenu li{
+	  font-size: 2em;
+  margin: 0.5em;
+}
+.mitad2{
+	display: inline-block;
+	padding: 0.5em;
+	vertical-align: middle;
+}
+#agregar{
+	border: 1px solid;
+	background: #aaaaaa;
+	border-radius: 0.5em;
+	padding: 2em;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #010101;
+	display: none;
+}
+
